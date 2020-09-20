@@ -303,10 +303,10 @@ function rowReset(row, whatLayer) {
 			const layer = ROW_LAYERS[i][j];
 			for (const key in player[layer]) {
 				if (key === "unl") continue;
-				const def = layers.layers[name].custom[key].amt;
+				const def = layers.layers[layer].custom[key].amt;
 				let bool;
 				try {
-					bool = layers.layers[name].keep[key](whatLayer);
+					bool = layers.layers[layer].keep[key](whatLayer);
 				} catch (e) {
 					// In case it's undef, not func
 					bool = false;

@@ -70,7 +70,9 @@ layers.Layer({
 		type: "static",
 		// (Number|String|Decimal)
 		// Determines how the requirement scales.
-		// don't ask me, i dunno how it works
+		// It scales like this:
+		// static: cost = base^(amt^exp)
+		// normal: reward = amt^exp
 		exp: 0.5,
 		// (only needed if type is "static")
 		// the base multiplier for requirement scaling
@@ -80,8 +82,12 @@ layers.Layer({
 		max() {
 			return player.k.best.gte(15);
 		}
-		// optional, multiplier to requirement based on other layers
+		// optional, multiplier to gain of currency
 		mult() {
+			return 1;
+		}
+		// optional, multiplier to requirement based on other layers
+		reqMult() {
 			let mult = 1;
 			if (player.x.unl) mult *= 100;
 			return mult;

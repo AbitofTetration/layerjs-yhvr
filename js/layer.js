@@ -125,9 +125,10 @@ layers.Layer = function (data) {
 	LAYER_AMT_NAMES[name] = data.req.resourceName || "points";
 	LAYER_TYPE[name] = data.req.type;
 	LAYER_EXP[name] = data.req.exp;
+	LAYER_BASE[name] = data.req.base;
 	layers.layers[name].gainMult = data.req.mult || (() => nD(1));
 	layers.layers[name].max = data.req.max || (() => false);
-	layers.layers[name].mult = data.req.mult || (() => nD(1));
+	layers.layers[name].mult = data.req.reqMult || (() => nD(1));
 
 	// Deal with data.milestones
 	if (data.milestones) layers.layers[name].milestones = data.milestones;

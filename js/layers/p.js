@@ -40,6 +40,7 @@ layers.Layer({
 				mult = mult.times(LAYER_UPGS.p[23].currently());
 			if (player.p.upgrades.includes(31))
 				mult = mult.times(LAYER_UPGS.p[31].currently());
+			if (player.k.unl) mult = mult.times(LAYER_EFFS.k());
 			return mult;
 		},
 	},
