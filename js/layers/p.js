@@ -118,6 +118,10 @@ layers.Layer({
 			},
 		},
 	},
+	tick(time) {
+		if (player.p.upgrades.includes(11))
+			player.points = player.points.plus(tmp.pointGen.times(time)).max(0);
+	},
 });
 
 layers.Layer({

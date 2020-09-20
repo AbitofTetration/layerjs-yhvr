@@ -435,13 +435,11 @@ function gameLoop(diff) {
 	diff = new Decimal(diff);
 	if (isNaN(diff.toNumber())) diff = new Decimal(0);
 	player.timePlayed += diff.toNumber();
-	if (player.p.upgrades.includes(11))
-		player.points = player.points.plus(tmp.pointGen.times(diff)).max(0);
 
 	if (player.hasNaN && !NaNalert) {
 		alert(
 			`We have detected a corruption in your save. Please visit https://discord.gg/${
-				config.discord || "wwQfgPa"
+				layers.discord || "wwQfgPa"
 			} for help.`
 		);
 		clearInterval(interval);
